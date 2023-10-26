@@ -13,7 +13,6 @@ import { AdminAreaComponent } from './components/admin/admin-area/admin-area.com
 import { AggiungiEventoComponent } from './components/admin/aggiungi-evento/aggiungi-evento.component';
 import { LoginPageComponent } from './components/login-page/login-page.component';
 import { AdminHomeComponent } from './components/admin/admin-home/admin-home.component';
-import { PrenotazioniComponent } from './components/admin/prenotazioni/prenotazioni.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { VisualizzaEventiComponent } from './components/admin/visualizza-eventi/visualizza-eventi.component';
 
@@ -24,6 +23,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { ContattiComponent } from './components/contatti/contatti.component';
 import { VisualizzaUtentiComponent } from './components/admin/visualizza-utenti/visualizza-utenti.component';
+import { VisualizzaPrenotazioniComponent } from './components/admin/visualizza-prenotazioni/visualizza-prenotazioni.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -36,10 +36,10 @@ import { VisualizzaUtentiComponent } from './components/admin/visualizza-utenti/
     AggiungiEventoComponent,
     LoginPageComponent,
     AdminHomeComponent,
-    PrenotazioniComponent,
     VisualizzaEventiComponent,
     ContattiComponent,
     VisualizzaUtentiComponent,
+    VisualizzaPrenotazioniComponent,
 
   ],
   imports: [
