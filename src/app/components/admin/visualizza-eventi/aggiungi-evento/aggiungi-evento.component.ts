@@ -1,5 +1,7 @@
+import { formatDate } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators, } from '@angular/forms';
+import { MatDialogRef } from '@angular/material/dialog';
 import { Evento } from 'src/app/models/evento.model';
 import { EventiServiceService } from 'src/app/services/eventi-service.service';
 
@@ -14,7 +16,7 @@ export class AggiungiEventoComponent implements OnInit {
   eventiService
 
   nuovoEvento: Evento = new Evento()
-  constructor(eventiService: EventiServiceService,) {
+  constructor(eventiService: EventiServiceService, private dialogRef: MatDialogRef<AggiungiEventoComponent>) {
     this.eventiService = eventiService
 
   }
@@ -25,10 +27,9 @@ export class AggiungiEventoComponent implements OnInit {
       descrizione: new FormControl(null, Validators.required),
       prezzo: new FormControl(null, Validators.required),
       bigliettiDisponibili: new FormControl(null, Validators.required),
-      categoria: new FormControl(null, Validators.required),
-      localita: new FormControl(null, Validators.required),
-      data: new FormControl(null, Validators.required),
-
+      idCategoria: new FormControl(null, Validators.required),
+      idLocalita: new FormControl(null, Validators.required),
+      data: new FormControl(null, Validators.required)
     })
   }
 
@@ -36,9 +37,13 @@ export class AggiungiEventoComponent implements OnInit {
   //Metodo onsubmit per il Reactive Forms
   onSubmit() {
     this.nuovoEvento = this.addForm.value
+    this.nuovoEvento.idCategoria = 1
+    this.nuovoEvento.idLocalita = 1
+    this.nuovoEvento.status = "ATTIVO"
     this.eventiService.aggiungiEvento(this.nuovoEvento)
     this.nuovoEvento = new Evento();
     this.addForm.reset()
+    this.dialogRef.close('success');
   }
 
 

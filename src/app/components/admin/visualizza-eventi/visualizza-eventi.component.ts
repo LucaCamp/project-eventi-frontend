@@ -17,9 +17,15 @@ export class VisualizzaEventiComponent implements OnInit {
     this.eventiService = eventiService;
   }
   aggiungiEvento() {
-    this.dialog.open(AggiungiEventoComponent, {
+    const dialogRef = this.dialog.open(AggiungiEventoComponent, {
       height: '80%',
       width: '650px',
+    });
+
+    dialogRef.afterClosed().subscribe((result: any) => {
+      if (result === 'success') {
+        this.getEventi();
+      }
     });
   }
 

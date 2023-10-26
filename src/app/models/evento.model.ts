@@ -4,7 +4,8 @@ export class Evento {
   descrizione!: string;
   prezzo!: number;
   bigliettiDisponibili!: number;
-  categoria!: string;
-  localita!: string;
+  idCategoria!: number;
+  idLocalita!: number;
+  status!: string;
   data!: Date;
 }
