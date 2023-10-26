@@ -1,23 +1,23 @@
 <div class="pt-3 container-fluid"  *ngFor="let evento of listaEventi" >
   <div class="row">
-  <div class="col-lg-1"></div>
-  <div class="col-lg-10">
-  <div class="card mb-5 mx-5 direction">
-  <div class="card " >
-    <div class="card-body ">
-      <h4 class="card-text">{{evento.data | date: shortDate}}</h4>
-    </div>
-  </div>
-  <div class="card-body">
-    <h3 class="card-title">{{evento.nome}}</h3>
-    <p class="card-text">{{evento.localita}}</p>
-    <p class="card-text">{{evento.descrizione}}</p>
-    <p class="card-text">{{evento.prezzo | currency: 'EUR':true}}</p>
-    
-  </div>
-
-  <div class="d-flex align-items-center me-3 mb-2  prenota" ><a href="#" class="btn btn-outline-success">Prenota</a></div>
-</div></div>
-<div class="col-lg-1"></div>
+  <div class="col-lg-2"></div>
+  <div class="col-lg-8">
+    <mat-card >
+      <mat-card-header>
+        <mat-card-title> <div>{{evento.nome}} </div><div>  </div></mat-card-title>
+        <mat-card-subtitle>{{evento.localita}} - {{evento.data | date: shortDate}}
+          <mat-card-content><p class="card-text">{{evento.descrizione}}</p>
+            <p class="card-text">{{evento.prezzo | currency: 'EUR':true}}</p></mat-card-content>
+      </mat-card-subtitle>
+      </mat-card-header>
+      <mat-card-footer>
+      <mat-card-actions align="end">
+        <div class="d-flex flex-column align-items-center me-3 prenota">
+          <div class="mb-3"><button  matTooltip="Prenota" mat-mini-fab color= "stroked" class="btn btn-success" >
+            <mat-icon>add_shopping_cart</mat-icon></button></div>
+        </div>
+      </mat-card-actions></mat-card-footer>
+    </mat-card></div>
+<div class="col-lg-2"></div>
 </div>
 </div>

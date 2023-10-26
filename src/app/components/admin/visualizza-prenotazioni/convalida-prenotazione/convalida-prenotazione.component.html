@@ -1,0 +1,8 @@
+<h1 mat-dialog-title>Convalida prenotazione</h1>
+<div mat-dialog-content>
+  Sei sicuro di voler convalidare la prenotazione? 
+</div>
+<div mat-dialog-actions>
+  <button mat-button mat-dialog-close>No</button>
+  <button (click)="convalida(this.data.idPrenotazione)" mat-button mat-dialog-close cdkFocusInitial>Ok</button>
+</div>

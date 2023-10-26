@@ -9,11 +9,7 @@ import { AuthService } from 'src/app/auth/auth.service';
   templateUrl: './admin-area.component.html',
   styleUrls: ['./admin-area.component.css']
 })
-export class AdminAreaComponent implements OnInit {
+export class AdminAreaComponent {
   constructor(private authService: AuthService, private router: Router) { }
-  ngOnInit(): void {
-    throw new Error('Method not implemented.');
-  }
-
 
 }

@@ -10,11 +10,16 @@ import { HomeComponent } from './components/home/home.component';
 import { EventBoxComponent } from './components/eventi/eventi.component';
 import { AreaPersonaleComponent } from './components/area-personale/area-personale.component';
 import { AdminAreaComponent } from './components/admin/admin-area/admin-area.component';
-import { AggiungiEventoComponent } from './components/admin/aggiungi-evento/aggiungi-evento.component';
+import { AggiungiEventoComponent } from './components/admin/visualizza-eventi/aggiungi-evento/aggiungi-evento.component';
 import { LoginPageComponent } from './components/login-page/login-page.component';
 import { AdminHomeComponent } from './components/admin/admin-home/admin-home.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { VisualizzaEventiComponent } from './components/admin/visualizza-eventi/visualizza-eventi.component';
+import { MatInputModule } from '@angular/material/input';
+import { MatCardModule } from '@angular/material/card';
+import { MatTooltipModule } from '@angular/material/tooltip';
+
+
 
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
@@ -24,6 +29,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { ContattiComponent } from './components/contatti/contatti.component';
 import { VisualizzaUtentiComponent } from './components/admin/visualizza-utenti/visualizza-utenti.component';
 import { VisualizzaPrenotazioniComponent } from './components/admin/visualizza-prenotazioni/visualizza-prenotazioni.component';
+import { CancellaPrenotazioneComponent } from './components/admin/visualizza-prenotazioni/cancella-prenotazione/cancella-prenotazione.component';
+import { ConvalidaPrenotazioneComponent } from './components/admin/visualizza-prenotazioni/convalida-prenotazione/convalida-prenotazione.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -40,6 +47,8 @@ import { VisualizzaPrenotazioniComponent } from './components/admin/visualizza-p
     ContattiComponent,
     VisualizzaUtentiComponent,
     VisualizzaPrenotazioniComponent,
+    CancellaPrenotazioneComponent,
+    ConvalidaPrenotazioneComponent,
 
   ],
   imports: [
@@ -52,6 +61,9 @@ import { VisualizzaPrenotazioniComponent } from './components/admin/visualizza-p
     MatDialogModule,
     ReactiveFormsModule,
     HttpClientModule,
+    MatInputModule,
+    MatCardModule,
+    MatTooltipModule
 
   ],
   providers: [],

@@ -1,4 +1,5 @@
 export class Evento {
+  id!: number;
   nome!: string;
   descrizione!: string;
   prezzo!: number;

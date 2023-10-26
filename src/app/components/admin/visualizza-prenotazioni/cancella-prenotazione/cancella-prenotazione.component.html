@@ -1,0 +1,9 @@
+
+<h1 mat-dialog-title>Cancella prenotazione</h1>
+<div mat-dialog-content>
+  Sei sicuro di cancellare la prenotazione? 
+</div>
+<div mat-dialog-actions>
+  <button mat-button mat-dialog-close>No</button>
+  <button (click)="cancella(this.data.idPrenotazione)" mat-button mat-dialog-close cdkFocusInitial>Ok</button>
+</div>

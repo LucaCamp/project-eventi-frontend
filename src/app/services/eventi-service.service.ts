@@ -13,7 +13,7 @@ export class EventiServiceService {
 
   getEventi(): any {
     this.eventi = MOCK_EVENTI
-    return of(this.eventi.reverse());
+    return of(this.eventi);
     // // const headers = new HttpHeaders({ authorization: 'Basic ' + btoa('user:d534c641-4c17-4539-b53d-b8c9f202dc29') })
     // return this.http.get("http://localhost:8080/api/clienti/all")
   }

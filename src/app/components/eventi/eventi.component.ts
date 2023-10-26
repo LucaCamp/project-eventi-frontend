@@ -17,12 +17,16 @@ export class EventBoxComponent implements OnInit {
   constructor(eventiService: EventiServiceService, private http: HttpClient) {
     this.eventiService = eventiService;
   }
-  ngOnInit(): void {
+
+  getEventi() {
     this.eventiService.getEventi().subscribe((data: any) => {
       if (data) {
         this.listaEventi = data;
         console.log(data)
       }
     })
+  }
+  ngOnInit(): void {
+    this.getEventi();
   }
 }
