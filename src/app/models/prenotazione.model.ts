@@ -6,5 +6,5 @@ export class Prenotazione {
   isConvalidata!: boolean;
   prezzoTotale!: number;
   idEvento!: number;
-  cancellata!: boolean;
+
 }

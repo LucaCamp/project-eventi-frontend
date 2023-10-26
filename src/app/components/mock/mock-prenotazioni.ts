@@ -9,7 +9,7 @@ export const MOCK_PRENOTAZIONI: Prenotazione[] = [
     isConvalidata: false,
     prezzoTotale: 240,
     idEvento: 1,
-    cancellata: false,
+
   },
   {
     id: 2,
@@ -19,7 +19,7 @@ export const MOCK_PRENOTAZIONI: Prenotazione[] = [
     isConvalidata: true,
     prezzoTotale: 240,
     idEvento: 1,
-    cancellata: false,
+
   },
   {
     id: 3,
@@ -29,6 +29,6 @@ export const MOCK_PRENOTAZIONI: Prenotazione[] = [
     isConvalidata: true,
     prezzoTotale: 240,
     idEvento: 1,
-    cancellata: false
+
   }
 ]
