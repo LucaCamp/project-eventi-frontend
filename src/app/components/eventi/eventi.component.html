@@ -1,0 +1,23 @@
+<div class="pt-3 container-fluid"  *ngFor="let evento of listaEventi" >
+  <div class="row">
+  <div class="col-lg-1"></div>
+  <div class="col-lg-10">
+  <div class="card mb-5 mx-5 direction">
+  <div class="card " >
+    <div class="card-body ">
+      <h4 class="card-text">{{evento.data | date: shortDate}}</h4>
+    </div>
+  </div>
+  <div class="card-body">
+    <h3 class="card-title">{{evento.nome}}</h3>
+    <p class="card-text">{{evento.localita}}</p>
+    <p class="card-text">{{evento.descrizione}}</p>
+    <p class="card-text">{{evento.prezzo | currency: 'EUR':true}}</p>
+    
+  </div>
+
+  <div class="d-flex align-items-center me-3 mb-2  prenota" ><a href="#" class="btn btn-outline-success">Prenota</a></div>
+</div></div>
+<div class="col-lg-1"></div>
+</div>
+</div>

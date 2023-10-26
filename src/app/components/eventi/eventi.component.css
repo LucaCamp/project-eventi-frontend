@@ -1,0 +1,10 @@
+@media (min-width: 768px) {
+  .direction {
+    flex-direction: row;
+  }
+
+}
+
+.prenota {
+  justify-content: center;
+}

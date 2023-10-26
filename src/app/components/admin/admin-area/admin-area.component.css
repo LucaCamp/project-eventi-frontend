@@ -1,0 +1,13 @@
+.fix {
+  padding-top: 0px;
+  position: sticky;
+  top: 0;
+}
+
+.heit {
+  height: 100%;
+}
+
+.admin-area {
+  padding-bottom: 100px;
+}
