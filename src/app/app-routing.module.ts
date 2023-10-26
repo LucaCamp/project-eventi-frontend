@@ -8,6 +8,8 @@ import { LoginPageComponent } from './components/login-page/login-page.component
 import { AdminHomeComponent } from './components/admin/admin-home/admin-home.component';
 import { VisualizzaEventiComponent } from './components/admin/visualizza-eventi/visualizza-eventi.component';
 import { ContattiComponent } from './components/contatti/contatti.component';
+import { VisualizzaUtentiComponent } from './components/admin/visualizza-utenti/visualizza-utenti.component';
+import { VisualizzaPrenotazioniComponent } from './components/admin/visualizza-prenotazioni/visualizza-prenotazioni.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -20,6 +22,8 @@ const routes: Routes = [
       { path: 'home', component: AdminHomeComponent },
       { path: 'aggiungi-evento', component: AggiungiEventoComponent },
       { path: 'visualizza-eventi', component: VisualizzaEventiComponent },
+      { path: 'visualizza-utenti', component: VisualizzaUtentiComponent },
+      { path: 'visualizza-prenotazioni', component: VisualizzaPrenotazioniComponent },
       { path: 'admin/login', component: LoginPageComponent }
     ]
   },

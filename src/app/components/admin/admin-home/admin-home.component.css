@@ -2,3 +2,8 @@
   border-left: 5px solid #198754;
   ;
 }
+
+.border-left-black {
+  border-left: 5px solid black;
+  ;
+}
