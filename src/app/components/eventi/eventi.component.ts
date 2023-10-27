@@ -22,7 +22,6 @@ export class EventBoxComponent implements OnInit {
     this.eventiService.getEventi().subscribe((data: any) => {
       if (data) {
         this.listaEventi = data;
-        console.log(data)
       }
     })
   }

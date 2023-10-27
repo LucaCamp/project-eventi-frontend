@@ -5,4 +5,5 @@ export class Utente {
   password!: string;
   email!: string;
   codiceFiscale!: string;
+  status!:string;
 }
