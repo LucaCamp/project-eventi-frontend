@@ -21,7 +21,7 @@
     <mat-card>
       <mat-card-header>
         <mat-card-title> <div>{{evento.nome}} </div><div>  </div></mat-card-title>
-        <mat-card-subtitle>{{evento.idLocalita}} - {{evento.data | date: long}}
+        <mat-card-subtitle>Località: {{evento.idLocalita}} - {{evento.data | date: long}}
           <mat-card-content><p class="card-text">{{evento.descrizione}}</p>
             <p class="card-text">{{evento.prezzo | currency: 'EUR':true}}</p></mat-card-content>
       </mat-card-subtitle>

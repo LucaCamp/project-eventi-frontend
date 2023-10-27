@@ -19,10 +19,14 @@ export class VisualizzaPrenotazioniComponent {
   listaPrenotazioni: Prenotazione[];
   categoria: Observable<Categoria> | undefined;
   prenotazioniService;
+
+
+
   constructor(private eventoService: EventiServiceService,
     private readonly dialog: MatDialog, prenotazioniService: PrenotazioniService) {
     this.prenotazioniService = prenotazioniService;
     this.listaPrenotazioni = []
+
   }
   onConvalida(idPrenotazione: number) {
     const dialogRef = this.dialog.open(ConvalidaPrenotazioneComponent, {
@@ -57,17 +61,10 @@ export class VisualizzaPrenotazioniComponent {
       }
     })
   }
-  getEvento(idEvento: number): string {
-    let evento = new Evento()
-    this.eventoService.getEvento(idEvento).subscribe((data) => {
-      evento.nome = data.nome
-    })
-    return ""
 
-  }
+
   ngOnInit(): void {
     this.getPrenotazioni();
-
   }
 }
 

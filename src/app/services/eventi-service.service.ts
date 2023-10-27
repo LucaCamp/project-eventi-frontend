@@ -14,7 +14,7 @@ export class EventiServiceService {
   modificaEvento(id: number, eventoModificato: Evento) {
     // console.log(eventoModificato)
 
-    return this.http.put<Evento>(`http://localhost:8080/evento/modifica/${id}`, eventoModificato).subscribe()
+    return this.http.put<Evento>(`http://localhost:8080/evento/modifica?id=${id}`, eventoModificato).subscribe()
   }
   cancellaEvento(id: number) {
     return this.http.delete(`http://localhost:8080/evento/${id}`).subscribe()
