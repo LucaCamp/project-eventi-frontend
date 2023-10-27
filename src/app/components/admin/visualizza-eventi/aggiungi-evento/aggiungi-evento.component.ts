@@ -39,7 +39,7 @@ export class AggiungiEventoComponent implements OnInit {
     this.nuovoEvento = this.addForm.value
     this.nuovoEvento.idCategoria = 1
     this.nuovoEvento.idLocalita = 1
-    this.nuovoEvento.status = "ATTIVO"
+    this.nuovoEvento.status = 1
     this.eventiService.aggiungiEvento(this.nuovoEvento)
     this.nuovoEvento = new Evento();
     this.addForm.reset()

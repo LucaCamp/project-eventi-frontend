@@ -4,6 +4,11 @@ import { Prenotazione } from 'src/app/models/prenotazione.model';
 import { PrenotazioniService } from 'src/app/services/prenotazioni.service';
 import { CancellaPrenotazioneComponent } from './cancella-prenotazione/cancella-prenotazione.component';
 import { ConvalidaPrenotazioneComponent } from './convalida-prenotazione/convalida-prenotazione.component';
+import { CategoriaService } from 'src/app/services/categoria.service';
+import { Categoria } from 'src/app/models/categoria.model';
+import { Observable } from 'rxjs';
+import { EventiServiceService } from 'src/app/services/eventi-service.service';
+import { Evento } from 'src/app/models/evento.model';
 
 @Component({
   selector: 'app-visualizza-prenotazioni',
@@ -12,8 +17,10 @@ import { ConvalidaPrenotazioneComponent } from './convalida-prenotazione/convali
 })
 export class VisualizzaPrenotazioniComponent {
   listaPrenotazioni: Prenotazione[];
+  categoria: Observable<Categoria> | undefined;
   prenotazioniService;
-  constructor(private readonly dialog: MatDialog, prenotazioniService: PrenotazioniService) {
+  constructor(private eventoService: EventiServiceService,
+    private readonly dialog: MatDialog, prenotazioniService: PrenotazioniService) {
     this.prenotazioniService = prenotazioniService;
     this.listaPrenotazioni = []
   }
@@ -50,7 +57,18 @@ export class VisualizzaPrenotazioniComponent {
       }
     })
   }
+  getEvento(idEvento: number): string {
+    let evento = new Evento()
+    this.eventoService.getEvento(idEvento).subscribe((data) => {
+      evento.nome = data.nome
+    })
+    return ""
+
+  }
   ngOnInit(): void {
     this.getPrenotazioni();
+
   }
 }
+
+

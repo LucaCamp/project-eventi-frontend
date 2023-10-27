@@ -6,6 +6,6 @@ export class Evento {
   bigliettiDisponibili!: number;
   idCategoria!: number;
   idLocalita!: number;
-  status!: string;
+  status!: number | null;
   data!: Date;
 }

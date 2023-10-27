@@ -6,7 +6,7 @@
     <mat-card>
       <mat-card-header>
         <mat-card-title> <div> ID PRENOTAZIONE: {{prenotazione.id}} </div><div>  </div></mat-card-title>
-        <mat-card-subtitle>ID UTENTE: {{prenotazione.idUtente}} - ID EVENTO:{{prenotazione.idEvento}}
+        <mat-card-subtitle>ID EVENTO: {{getEvento(prenotazione.idEvento)}} - ID UTENTE:{{prenotazione.idUtente}}
           <mat-card-content><p class="card-text">POSTI PRENOTATI:{{prenotazione.quantitaPrenotata}}</p>
             <p class="card-text">PREZZO TOTALE: {{prenotazione.prezzoTotale | currency: 'EUR':true}}</p>
             <p class="card-text">Convalidata: <span *ngIf="prenotazione.isConvalidata">Sì<mat-icon>check</mat-icon></span></p>
