@@ -3,6 +3,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { AggiungiEventoComponent } from './aggiungi-evento/aggiungi-evento.component';
 import { EventiServiceService } from 'src/app/services/eventi-service.service';
 import { HttpClient } from '@angular/common/http';
+import { CancellaEventoComponent } from './cancella-evento/cancella-evento.component';
 
 @Component({
   selector: 'app-visualizza-eventi',
@@ -28,6 +29,20 @@ export class VisualizzaEventiComponent implements OnInit {
       }
     });
   }
+
+  cancellaEvento(id: number) {
+    const dialogRef = this.dialog.open(CancellaEventoComponent, {
+      height: '300px',
+      width: '350px',
+      data: { id: id }
+    });
+    dialogRef.afterClosed().subscribe((result: any) => {
+      if (result === 'success') {
+        this.getEventi();
+      }
+    });
+  }
+
 
   getEventi() {
     this.eventiService.getEventi().subscribe((data: any) => {

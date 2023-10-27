@@ -14,7 +14,7 @@ export class CancellaPrenotazioneComponent {
   ) { }
   cancella(idPrenotazione: number) {
     this.prenotazioniService.cancellaPrenotazione(idPrenotazione);
-    console.log
+
   }
 
 }

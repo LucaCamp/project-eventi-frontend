@@ -29,7 +29,7 @@
       <mat-card-footer>
       <mat-card-actions align="end">
         <div class="d-flex flex-column align-items-center me-3 prenota">
-          <div class="mb-3"><button  matTooltip="Elimina Evento" mat-mini-fab color= "stroked" class="btn btn-success" >
+          <div class="mb-3"><button (click)="cancellaEvento(evento.id)" matTooltip="Elimina Evento" mat-mini-fab color= "stroked" class="btn btn-success" >
             <mat-icon>delete</mat-icon></button></div>
           <div><button matTooltip="Modifica Evento" mat-mini-fab color= "stroked" class="btn btn-success" >
             <mat-icon>edit</mat-icon></button></div>

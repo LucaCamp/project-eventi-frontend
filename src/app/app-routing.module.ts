@@ -3,7 +3,6 @@ import { NgModule } from '@angular/core';
 import { AdminAreaComponent } from './components/admin/admin-area/admin-area.component';
 import { AreaPersonaleComponent } from './components/area-personale/area-personale.component';
 import { HomeComponent } from './components/home/home.component';
-import { AggiungiEventoComponent } from './components/admin/visualizza-eventi/aggiungi-evento/aggiungi-evento.component';
 import { LoginPageComponent } from './components/login-page/login-page.component';
 import { AdminHomeComponent } from './components/admin/admin-home/admin-home.component';
 import { VisualizzaEventiComponent } from './components/admin/visualizza-eventi/visualizza-eventi.component';
@@ -20,7 +19,6 @@ const routes: Routes = [
   {
     path: 'admin', component: AdminAreaComponent, children: [
       { path: 'home', component: AdminHomeComponent },
-      { path: 'aggiungi-evento', component: AggiungiEventoComponent },
       { path: 'visualizza-eventi', component: VisualizzaEventiComponent },
       { path: 'visualizza-utenti', component: VisualizzaUtentiComponent },
       { path: 'visualizza-prenotazioni', component: VisualizzaPrenotazioniComponent },

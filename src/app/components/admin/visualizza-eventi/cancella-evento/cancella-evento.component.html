@@ -1,0 +1,9 @@
+
+<h1 mat-dialog-title>Cancella Evento</h1>
+<div mat-dialog-content>
+  Sei sicuro di cancellare l'evento? 
+</div>
+<div mat-dialog-actions>
+  <button mat-button mat-dialog-close>No</button>
+  <button (click)="cancella(this.data.id)" mat-button mat-dialog-close cdkFocusInitial>Ok</button>
+</div>

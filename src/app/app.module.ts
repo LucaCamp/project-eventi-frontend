@@ -31,6 +31,7 @@ import { VisualizzaUtentiComponent } from './components/admin/visualizza-utenti/
 import { VisualizzaPrenotazioniComponent } from './components/admin/visualizza-prenotazioni/visualizza-prenotazioni.component';
 import { CancellaPrenotazioneComponent } from './components/admin/visualizza-prenotazioni/cancella-prenotazione/cancella-prenotazione.component';
 import { ConvalidaPrenotazioneComponent } from './components/admin/visualizza-prenotazioni/convalida-prenotazione/convalida-prenotazione.component';
+import { CancellaEventoComponent } from './components/admin/visualizza-eventi/cancella-evento/cancella-evento.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -49,6 +50,7 @@ import { ConvalidaPrenotazioneComponent } from './components/admin/visualizza-pr
     VisualizzaPrenotazioniComponent,
     CancellaPrenotazioneComponent,
     ConvalidaPrenotazioneComponent,
+    CancellaEventoComponent,
 
   ],
   imports: [
