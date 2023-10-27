@@ -4,6 +4,7 @@ import { AggiungiEventoComponent } from './aggiungi-evento/aggiungi-evento.compo
 import { EventiServiceService } from 'src/app/services/eventi-service.service';
 import { HttpClient } from '@angular/common/http';
 import { CancellaEventoComponent } from './cancella-evento/cancella-evento.component';
+import { ModificaEventoComponent } from './modifica-evento/modifica-evento.component';
 
 @Component({
   selector: 'app-visualizza-eventi',
@@ -11,12 +12,15 @@ import { CancellaEventoComponent } from './cancella-evento/cancella-evento.compo
   styleUrls: ['./visualizza-eventi.component.css']
 })
 export class VisualizzaEventiComponent implements OnInit {
-  shortDate: string | undefined;
+  long: string | undefined;
   eventiService;
   listaEventi: any | undefined;
+
   constructor(private readonly dialog: MatDialog, eventiService: EventiServiceService, private http: HttpClient) {
     this.eventiService = eventiService;
   }
+
+
   aggiungiEvento() {
     const dialogRef = this.dialog.open(AggiungiEventoComponent, {
       height: '80%',
@@ -43,6 +47,18 @@ export class VisualizzaEventiComponent implements OnInit {
     });
   }
 
+  modificaEvento(id: number) {
+    const dialogRef = this.dialog.open(ModificaEventoComponent, {
+      height: '80%',
+      width: '650px',
+      data: { id: id }
+    });
+    dialogRef.afterClosed().subscribe((result: any) => {
+      if (result === 'success') {
+        this.getEventi();
+      }
+    });
+  }
 
   getEventi() {
     this.eventiService.getEventi().subscribe((data: any) => {

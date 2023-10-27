@@ -9,7 +9,7 @@
         <mat-card-subtitle>ID UTENTE: {{prenotazione.idUtente}} - ID EVENTO:{{prenotazione.idEvento}}
           <mat-card-content><p class="card-text">POSTI PRENOTATI:{{prenotazione.quantitaPrenotata}}</p>
             <p class="card-text">PREZZO TOTALE: {{prenotazione.prezzoTotale | currency: 'EUR':true}}</p>
-            <p class="card-text">Convalidata: <span *ngIf="prenotazione.isConvalidata">sì</span></p>
+            <p class="card-text">Convalidata: <span *ngIf="prenotazione.isConvalidata">Sì<mat-icon>check</mat-icon></span></p>
           </mat-card-content>
       </mat-card-subtitle>
       </mat-card-header>

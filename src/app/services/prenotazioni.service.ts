@@ -9,7 +9,8 @@ import { Observable, of } from 'rxjs';
 })
 export class PrenotazioniService {
   convalidaPrenotazione(idPrenotazione: number) {
-    // prenotazione.isConvalidata = true;
+    console.log(idPrenotazione)
+    return this.http.put<Prenotazione>(`http://localhost:8080/prenotazione/modifica/${idPrenotazione}`, { isConvalidata: true }).subscribe()
   }
 
   constructor(private http: HttpClient) { }
@@ -17,13 +18,11 @@ export class PrenotazioniService {
 
 
   getPrenotazioni(): Observable<Prenotazione[]> {
-    this.prenotazioni = MOCK_PRENOTAZIONI
-    return of(this.prenotazioni);
-    // // const headers = new HttpHeaders({ authorization: 'Basic ' + btoa('user:d534c641-4c17-4539-b53d-b8c9f202dc29') })
-    // return this.http.get("http://localhost:8080/api/clienti/all")
+    return this.http.get<Prenotazione[]>("http://localhost:8080/prenotazione/all")
   }
 
   cancellaPrenotazione(idPrenotazione: number) {
-
+    console.log(idPrenotazione)
+    return this.http.delete(`http://localhost:8080/prenotazione/cancella/${idPrenotazione}`).subscribe()
   }
 }

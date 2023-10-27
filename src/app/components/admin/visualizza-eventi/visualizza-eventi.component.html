@@ -1,12 +1,12 @@
 <div class="d-flex justify-content-center align-items-center p-3">
-  <form class="example-form me-4">
+  <!-- <form class="example-form me-4">
     <mat-form-field class="example-full-width">
       <input matInput placeholder="Favorite food" placeholder="Cerca un Evento">
       
     </mat-form-field><button  mat-mini-fab color= "stroked" class="btn btn-success" >
       <mat-icon>search</mat-icon>
     </button>
-  </form>
+  </form> -->
   <h3 class="mx-4 mt-3">Aggiungi un evento </h3>
   <button (click)="aggiungiEvento()" mat-mini-fab color= "stroked" class="btn btn-success" >
     <mat-icon>add</mat-icon>
@@ -21,7 +21,7 @@
     <mat-card>
       <mat-card-header>
         <mat-card-title> <div>{{evento.nome}} </div><div>  </div></mat-card-title>
-        <mat-card-subtitle>{{evento.localita}} - {{evento.data | date: shortDate}}
+        <mat-card-subtitle>{{evento.idLocalita}} - {{evento.data | date: long}}
           <mat-card-content><p class="card-text">{{evento.descrizione}}</p>
             <p class="card-text">{{evento.prezzo | currency: 'EUR':true}}</p></mat-card-content>
       </mat-card-subtitle>
@@ -31,7 +31,7 @@
         <div class="d-flex flex-column align-items-center me-3 prenota">
           <div class="mb-3"><button (click)="cancellaEvento(evento.id)" matTooltip="Elimina Evento" mat-mini-fab color= "stroked" class="btn btn-success" >
             <mat-icon>delete</mat-icon></button></div>
-          <div><button matTooltip="Modifica Evento" mat-mini-fab color= "stroked" class="btn btn-success" >
+          <div><button (click)="modificaEvento(evento.id)" matTooltip="Modifica Evento" mat-mini-fab color= "stroked" class="btn btn-success" >
             <mat-icon>edit</mat-icon></button></div>
         </div>
       </mat-card-actions></mat-card-footer>

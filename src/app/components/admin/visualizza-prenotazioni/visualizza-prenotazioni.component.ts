@@ -18,19 +18,28 @@ export class VisualizzaPrenotazioniComponent {
     this.listaPrenotazioni = []
   }
   onConvalida(idPrenotazione: number) {
-    this.dialog.open(ConvalidaPrenotazioneComponent, {
+    const dialogRef = this.dialog.open(ConvalidaPrenotazioneComponent, {
       height: '300px',
       width: '350px',
       data: { idPrenotazione: idPrenotazione }
+    });
+    dialogRef.afterClosed().subscribe((result: any) => {
+      if (result === 'success') {
+        this.getPrenotazioni();
+      }
     });
   }
   onCancella(idPrenotazione: number) {
-    this.dialog.open(CancellaPrenotazioneComponent, {
+    const dialogRef = this.dialog.open(CancellaPrenotazioneComponent, {
       height: '300px',
       width: '350px',
       data: { idPrenotazione: idPrenotazione }
     });
-
+    dialogRef.afterClosed().subscribe((result: any) => {
+      if (result === 'success') {
+        this.getPrenotazioni();
+      }
+    });
   }
 
   getPrenotazioni() {
