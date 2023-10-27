@@ -7,6 +7,9 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
   providedIn: 'root'
 })
 export class EventiServiceService {
+  cancellaEvento(id: number) {
+    return this.http.delete(`http://localhost:8080/evento/${id}`).subscribe()
+  }
   constructor(private http: HttpClient) { }
   eventi: Evento[] = []
 

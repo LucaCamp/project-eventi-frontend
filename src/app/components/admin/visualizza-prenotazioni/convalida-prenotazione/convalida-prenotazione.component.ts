@@ -14,7 +14,6 @@ export class ConvalidaPrenotazioneComponent {
     @Inject(MAT_DIALOG_DATA) public data: { idPrenotazione: number }
   ) { }
   convalida(idPrenotazione: number) {
-    this.prenotazioniService.cancellaPrenotazione(idPrenotazione);
 
   }
 
