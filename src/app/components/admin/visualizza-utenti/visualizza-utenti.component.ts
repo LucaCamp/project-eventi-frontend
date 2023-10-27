@@ -15,12 +15,7 @@ export class VisualizzaUtentiComponent implements OnInit {
   }
 
   getUtenti() {
-    this.utentiService.getUtenti().subscribe((data: any) => {
-      if (data) {
-        this.listaUtenti = data;
-        console.log(data)
-      }
-    })
+    this.utentiService.getUtenti()
   }
   ngOnInit(): void {
     this.getUtenti();

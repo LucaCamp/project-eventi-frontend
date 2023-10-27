@@ -1,7 +1,9 @@
 import { Component } from '@angular/core';
-import { NgForm } from '@angular/forms';
+import { Form, FormControl, FormGroup, NgForm, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/auth/auth.service';
+import { Utente } from 'src/app/models/utente.model';
+import { UtentiService } from 'src/app/services/utenti.service';
 
 @Component({
   selector: 'app-login-page',
@@ -9,10 +11,33 @@ import { AuthService } from 'src/app/auth/auth.service';
   styleUrls: ['./login-page.component.css']
 })
 export class LoginPageComponent {
-  constructor(private router: Router, private authService: AuthService) {
+  formLogin!:FormGroup;
+  formSignup!:FormGroup;
+  constructor(private router: Router, private utenteService: UtentiService) {
 
   }
+  ngOnInit(): void {
+    //Reactive Form
+    this.formLogin = new FormGroup({
+      email: new FormControl(null, Validators.required),
+      password: new FormControl(null, Validators.required)
+    })
+    this.formSignup = new FormGroup({
+      nome: new FormControl(null, Validators.required),
+      cognome: new FormControl(null, Validators.required),
+      email: new FormControl(null, Validators.required),
+      password: new FormControl(null, Validators.required),
+      codiceFiscale: new FormControl(null, Validators.required)
+    })
+  }
 
+  login(){
+    this.utenteService.logIn(this.formLogin.value.email, this.formLogin.value.password);
+  }
+  signup(){
+    let utente:Utente = this.formSignup.value;
+    this.utenteService.registraUtente(utente);
+  }
   // onSubmit(form: NgForm) {
   //   if (this.authService.verificaAdmin(form)) {
   //     this.goLink('admin/home')
