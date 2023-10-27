@@ -36,10 +36,7 @@ export class UtentiService {
     this.getUtenti();
     this.utenti.forEach((u)=>{if(u.email===username&&u.password===password){
       this.isLogedIn=true;
-      console.log(this.utenti)
-    
     }})
-    console.log(this.isLogedIn);
   }
   logOut(){
     this.isLogedIn=false;

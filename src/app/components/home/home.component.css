@@ -1,0 +1,42 @@
+* {
+    margin: 0px;
+    padding: 0px;
+  }
+  
+  main {
+    background: rgb(0, 0, 0);
+    background: linear-gradient(0deg, rgba(0, 0, 0, 1) 0%, rgba(6, 200, 0, 0.4160229972239291) 49%, rgba(0, 0, 0, 1) 100%);
+  }
+  
+  
+  .box {
+    transition: 1s ease-out;
+  }
+  
+  @keyframes movimento {
+    0% {
+      transform: scale(1);
+    }
+  
+    50% {
+      transform: scale(1.15);
+    }
+  
+  
+    100% {
+      transform: scale(1);
+    }
+  }
+  
+  
+  .box:hover {
+    animation-name: movimento;
+    animation-duration: 3s;
+    cursor: pointer;
+  }
+  
+  @media screen and (max-width: 992px) {
+    #login-icon-reverse {
+      flex-direction: row-reverse;
+    }
+  }
