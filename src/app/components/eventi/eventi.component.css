@@ -1,0 +1,12 @@
+.truncate-text {
+  white-space: nowrap;
+  /* Evita il wrapping del testo */
+  overflow: hidden;
+  /* Nasconde il testo oltre il container */
+  text-overflow: ellipsis;
+  /* Mostra "..." quando il testo è troncato */
+  max-height: 3em;
+  /* Specifica il numero massimo di righe (3) */
+  line-height: 1.5em;
+  /* Specifica l'altezza della riga (adatta a 3 righe) */
+}

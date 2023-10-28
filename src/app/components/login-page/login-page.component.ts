@@ -11,8 +11,8 @@ import { UtentiService } from 'src/app/services/utenti.service';
   styleUrls: ['./login-page.component.css']
 })
 export class LoginPageComponent {
-  formLogin!:FormGroup;
-  formSignup!:FormGroup;
+  formLogin!: FormGroup;
+  formSignup!: FormGroup;
   constructor(private router: Router, private utenteService: UtentiService) {
 
   }
@@ -31,11 +31,12 @@ export class LoginPageComponent {
     })
   }
 
-  login(){
+  login() {
     this.utenteService.logIn(this.formLogin.value.email, this.formLogin.value.password);
   }
-  signup(){
-    let utente:Utente = this.formSignup.value;
+  signup() {
+    console.log("registrato")
+    let utente: Utente = this.formSignup.value;
     this.utenteService.registraUtente(utente);
   }
   // onSubmit(form: NgForm) {
