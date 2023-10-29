@@ -8,9 +8,10 @@ import { MOCK_UTENTI } from '../components/mock/mock-utenti';
   providedIn: 'root'
 })
 export class UtentiService {
-  isLogedIn:boolean = false;
+
+  isLogedIn: boolean = false;
   constructor(private http: HttpClient) { }
-  utenti:Utente[] = [];
+  utenti: Utente[] = [];
   // getUtenti(): any {
   //   this.utenti = MOCK_UTENTI
   //   return of(this.utenti);
@@ -22,24 +23,29 @@ export class UtentiService {
     // this.utenti.unshift(utente)
     this.http.post('http://localhost:8080/utente/add', utente).subscribe();
   }
-  getUtenti(){
+  cancellaUtente(id: number) {
+    return this.http.delete(`http://localhost:8080/utente/cancella?id=${id}`)
+  }
+  getUtenti() {
     console.log("sei nel metodo getUtenti")
     return this.http.get<Utente[]>('http://localhost:8080/utente/all').subscribe(
       (data: any) => {
-      if (data) {
-        this.utenti=data;
+        if (data) {
+          this.utenti = data;
+        }
       }
-    }
     )
   }
-  logIn(username:string, password:string){
+  logIn(username: string, password: string) {
     this.getUtenti();
-    this.utenti.forEach((u)=>{if(u.email===username&&u.password===password){
-      this.isLogedIn=true;
-    }})
+    this.utenti.forEach((u) => {
+      if (u.email === username && u.password === password) {
+        this.isLogedIn = true;
+      }
+    })
   }
-  logOut(){
-    this.isLogedIn=false;
+  logOut() {
+    this.isLogedIn = false;
     console.log(this.isLogedIn)
   }
 }
