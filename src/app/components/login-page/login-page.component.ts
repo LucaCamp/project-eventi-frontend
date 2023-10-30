@@ -31,11 +31,7 @@ export class LoginPageComponent {
     })
   }
 
-  /*  PERFETTAMENTE FUNZIONANTE MA TOLGO PER UN TEST
-  per la rout home
-  login(){
-    this.utenteService.logIn(this.formLogin.value.email, this.formLogin.value.password); 
-  }*/
+  
 
    check(){
     this.utenteService.login(this.formLogin.value.email, this.formLogin.value.password)
@@ -62,14 +58,4 @@ export class LoginPageComponent {
   }
 
 
-  // onSubmit(form: NgForm) {
-  //   if (this.authService.verificaAdmin(form)) {
-  //     this.goLink('admin/home')
-  //     this.authService.admin.isLoggedIn = true;
-  //   } else alert("non sei l'admin!")
-  // }
-
-  // goLink(link: string) {
-  //   this.router.navigate([link])
-  // }
 }

@@ -7,19 +7,7 @@ import { BackOffice } from '../models/backOffice.model';
   providedIn: 'root'
 })
 export class AuthService {
-  // admin: BackOffice = { nome: "admin", password: "admin", isLoggedIn: false };
-  // authenticated: boolean = false;
-  // verificaAdmin(form: NgForm) {
-  //   if (form.value.username === this.admin.username && form.value.password === this.admin.password) {
-  //     return true;
-  //   } else return false;
-
-  // }
-
-  // isAutenticated() {
-  //   return this.admin.isLoggedIn;
-  // }
-  // constructor(private http: HttpClient) { }
+ 
 
 }
 

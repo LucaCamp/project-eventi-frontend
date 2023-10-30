@@ -15,12 +15,7 @@ export class UtentiService {
 
 
   constructor(private router: Router ,private http: HttpClient) { }
-  // getUtenti(): any {
-  //   this.utenti = MOCK_UTENTI
-  //   return of(this.utenti);
-  //   // // const headers = new HttpHeaders({ authorization: 'Basic ' + btoa('user:d534c641-4c17-4539-b53d-b8c9f202dc29') })
-  //   // return this.http.get("http://localhost:8080/api/clienti/all")
-  // }
+ 
 
   registraUtente(utente: Utente) {
     // this.utenti.unshift(utente)
@@ -38,21 +33,12 @@ export class UtentiService {
         }
       }
     )
- }/*   FUNZIONA MA provo un test
-  logIn(username:string, password:string){
-    this.getUtenti();
-    this.utenti.forEach((u)=>{if(u.email===username&&u.password===password){
-      this.isLogedIn=true;
-      
-    }})
-  }*/ 
+ }
   login(email: string, password: string): any {
-    //this.getUtenti();
+  
     this.user = this.utenti.find((u) => u.email === email && u.password === password);
     if (this.user) {
       this.isLoggedIn = true;
-      //this.isLogedIn = true;
-      //return true;
       return this.user;
     } else {
       this.isLoggedIn = false;

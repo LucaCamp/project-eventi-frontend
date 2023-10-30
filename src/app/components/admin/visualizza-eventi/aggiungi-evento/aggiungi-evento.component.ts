@@ -64,16 +64,4 @@ export class AggiungiEventoComponent implements OnInit {
   }
 
 
-  //Metodo onsubmit per il Template Driven Form
-
-  // onSubmit(form: any) {
-  //   this.nuovoEvento.nome = form.value.nome;
-  //   this.nuovoEvento.localita = form.value.localita;
-  //   this.nuovoEvento.descrizione = form.value.descrizione;
-  //   this.nuovoEvento.data = form.value.data;
-  //   this.nuovoEvento.prezzo = form.value.prezzo;
-  //   this.eventiService.aggiungiEvento(this.nuovoEvento)
-  //   this.nuovoEvento = new Evento();
-  //   form.reset()
-  // }
 }

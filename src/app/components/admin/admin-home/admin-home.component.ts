@@ -9,9 +9,5 @@ import { AuthService } from 'src/app/auth/auth.service';
 })
 export class AdminHomeComponent {
   constructor(private authService: AuthService, private router: Router) { }
-  // logout() {
-  //   this.authService.admin.isLoggedIn = false;
-  //   this.router.navigate(['login'])
-
-  // }
+  
 }
