@@ -32,16 +32,22 @@ ngOnInit(): void {
 logOut(){
   this.utenteService.isLoggedIn = false;
   this.utenteService.user = new Utente();
+  this.formLogin.reset();
+  this.router.navigate([`/login`])
 }
 
 check(){
   this.utenteService.login(this.formLogin.value.email, this.formLogin.value.password)
   const loginSuccess = this.utenteService.isLoggedIn
+  if(this.formLogin.value.email == "admin@admin.it" && this.formLogin.value.password == "admin"){
+    this.router.navigate([`/admin`])
+  }else{
   if(loginSuccess){
     this.router.navigate([`/home`])
     console.log(this.utenteService.user)
   }else{
     alert("Login fail. user or password ")
+    }
   }
  }
 
