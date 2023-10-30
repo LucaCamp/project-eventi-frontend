@@ -30,14 +30,27 @@ export class LoginPageComponent {
       codiceFiscale: new FormControl(null, Validators.required)
     })
   }
-
+  /*  PERFETTAMENTE FUNZIONANTE MA TOLGO PER UN TEST
+  per la rout home
   login(){
-    this.utenteService.logIn(this.formLogin.value.email, this.formLogin.value.password);
-  }
+    this.utenteService.logIn(this.formLogin.value.email, this.formLogin.value.password); 
+  }*/
+
+   login(){
+    const loginSuccess = this.utenteService.isLogedIn
+    if(loginSuccess){
+      this.router.navigate([`/home`])
+    }else{
+      alert("Login fail. user or password ")
+    }
+   }
+
   signup(){
     let utente:Utente = this.formSignup.value;
     this.utenteService.registraUtente(utente);
   }
+
+
   // onSubmit(form: NgForm) {
   //   if (this.authService.verificaAdmin(form)) {
   //     this.goLink('admin/home')
