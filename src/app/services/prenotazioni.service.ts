@@ -1,6 +1,6 @@
+import { Prenotazione } from 'src/app/models/prenotazione.model';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Prenotazione } from '../models/prenotazione.model';
 import { MOCK_PRENOTAZIONI } from '../components/mock/mock-prenotazioni';
 import { Observable, of } from 'rxjs';
 
@@ -16,6 +16,9 @@ export class PrenotazioniService {
   constructor(private http: HttpClient) { }
   prenotazioni: Prenotazione[] = []
 
+  aggiungiPrenotazione(prenotazione: Prenotazione){
+    return this.http.post<Prenotazione>("http://localhost:8080/prenotazione/add",prenotazione).subscribe()
+  }
 
   getPrenotazioni(): Observable<Prenotazione[]> {
     return this.http.get<Prenotazione[]>("http://localhost:8080/prenotazione/all")

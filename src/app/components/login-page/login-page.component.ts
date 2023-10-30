@@ -42,6 +42,7 @@ export class LoginPageComponent {
     const loginSuccess = this.utenteService.isLoggedIn
     if(loginSuccess){
       this.router.navigate([`/home`])
+      console.log(this.utenteService.user)
     }else{
       alert("Login fail. user or password ")
     }
