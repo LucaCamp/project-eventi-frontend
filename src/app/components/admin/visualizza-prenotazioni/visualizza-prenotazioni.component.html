@@ -1,4 +1,4 @@
-
+<!--
 <div class="pt-3 container-fluid"  *ngFor="let prenotazione of listaPrenotazioni" >
   <div class="row">
   <div class="col-lg-2"></div>
@@ -26,4 +26,57 @@
 <div class="col-lg-2"></div>
 </div>
 </div>
-
+-->
+<div class="mx-2 mb-5 pb-5 mx-4 table-responsive-lg">
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Prenotazioni</th>
+        <th scope="col">ID PRENOTAZIONE</th>
+        <th scope="col">ID UTENTE</th>
+        <th scope="col">ID EVENTO</th>
+        <th scope="col">CONVALIDATA</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let prenotazione of listaPrenotazioni">
+        <td><mat-icon>confirmation_number</mat-icon></td>
+        <td>{{ prenotazione.id }}</td>
+        <td>{{ prenotazione.idUtente }}</td>
+        <td>{{ prenotazione.idEvento }}</td>
+        <td>
+          <p class="card-text">
+            Convalidata:
+            <span *ngIf="prenotazione.isConvalidata"
+              >Sì<mat-icon>check</mat-icon></span
+            >
+          </p>
+        </td>
+        <td>
+          <span class="mx-2"
+            ><button
+              (click)="onCancella(prenotazione.id)"
+              matTooltip="Elimina Prenotazione"
+              mat-mini-fab
+              color="stroked"
+              class="btn btn-success"
+            >
+              <mat-icon>delete</mat-icon>
+            </button></span
+          >
+          <span
+            ><button
+              (click)="onConvalida(prenotazione.id)"
+              matTooltip="Convalida Prenotazione"
+              mat-mini-fab
+              color="stroked"
+              class="btn btn-success"
+            >
+              <mat-icon>done_all</mat-icon>
+            </button></span
+          >
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
