@@ -47,7 +47,7 @@ export class UtentiService {
     }})
   }*/ 
   login(email: string, password: string): any {
-    this.getUtenti();
+    //this.getUtenti();
     this.user = this.utenti.find((u) => u.email === email && u.password === password);
     if (this.user) {
       this.isLoggedIn = true;

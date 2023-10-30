@@ -104,22 +104,21 @@
             </a>
           
             <div class="dropdown-menu left dropdown-menu-start border-secondary ">
-              <form class="px-4 py-3 ">
-                <div class="form-group">
+              <form class="px-4 py-3 " [formGroup]="formLogin" >
+                <div class="form-group" *ngIf="!utenteService.isLoggedIn">
                   <label for="exampleDropdownFormEmail1">Email</label>
-                  <input type="email" class="form-control" id="exampleDropdownFormEmail1" placeholder="email@example.com">
+                  <input type="email" formControlName="email" class="form-control" id="exampleDropdownFormEmail1" placeholder="email@example.com">
                 </div>
-                <div class="form-group">
+                <div class="form-group" *ngIf="!utenteService.isLoggedIn">
                   <label for="exampleDropdownFormPassword1">Password</label>
-                  <input type="password" class="form-control" id="exampleDropdownFormPassword1" placeholder="Password">
+                  <input type="password" formControlName="password" class="form-control" id="exampleDropdownFormPassword1" placeholder="Password">
                 </div>
-                <div class="form-check">
-                  <input type="checkbox" class="form-check-input" id="dropdownCheck">
-                  <label class="form-check-label" for="dropdownCheck">
-                    Ricordami
-                  </label>
+                <div *ngIf="utenteService.isLoggedIn">
+                    <p>Benvenuto {{utenteService.user.nome}} !</p>
                 </div>
-                <button type="submit" class="btn btn-success">Log in</button>
+                
+                <button type="submit" class="btn btn-success"  (click)="check()" *ngIf="!utenteService.isLoggedIn">Log in</button>
+                <button type="submit" class="btn btn-success"  (click)="logOut()" *ngIf="utenteService.isLoggedIn">logOut</button>
               </form>
               <div class="dropdown-divider"></div>
               <a class="dropdown-item" routerLink="login">Sei nuovo su TicketUniverse? Registrati</a>

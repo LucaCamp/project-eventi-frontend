@@ -54,7 +54,6 @@ export class LoginPageComponent {
   signup() {
     console.log("registrato")
     let utente: Utente = this.formSignup.value;
-
     this.utenteService.registraUtente(utente);
   }
 
