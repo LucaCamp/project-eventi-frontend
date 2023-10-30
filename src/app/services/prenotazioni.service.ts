@@ -10,7 +10,7 @@ import { Observable, of } from 'rxjs';
 export class PrenotazioniService {
   convalidaPrenotazione(idPrenotazione: number) {
     console.log(idPrenotazione)
-    return this.http.put<Prenotazione>(`http://localhost:8080/prenotazione/modifica/${idPrenotazione}`, { isConvalidata: true }).subscribe()
+    return this.http.put<Prenotazione>(`http://localhost:8080/prenotazione/modifica?id=${idPrenotazione}`, { isConvalidata: true }).subscribe()
   }
 
   constructor(private http: HttpClient) { }

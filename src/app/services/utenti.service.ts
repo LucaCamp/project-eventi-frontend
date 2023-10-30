@@ -9,11 +9,12 @@ import { MOCK_UTENTI } from '../components/mock/mock-utenti';
   providedIn: 'root'
 })
 export class UtentiService {
-  isLogedIn:boolean = false;
-  constructor(private router: Router ,private http: HttpClient) { }
+  user!: any
+  isLoggedIn = false;
   utenti:Utente[] = [];
 
-  
+
+  constructor(private router: Router ,private http: HttpClient) { }
   // getUtenti(): any {
   //   this.utenti = MOCK_UTENTI
   //   return of(this.utenti);
@@ -25,16 +26,19 @@ export class UtentiService {
     // this.utenti.unshift(utente)
     this.http.post('http://localhost:8080/utente/add', utente).subscribe();
   }
-  getUtenti(){
+  cancellaUtente(id: number) {
+    return this.http.delete(`http://localhost:8080/utente/cancella?id=${id}`)
+  }
+  getUtenti() {
     console.log("sei nel metodo getUtenti")
     return this.http.get<Utente[]>('http://localhost:8080/utente/all').subscribe(
       (data: any) => {
-      if (data) {
-        this.utenti=data;
+        if (data) {
+          this.utenti = data;
+        }
       }
-    }
     )
-  }/*   FUNZIONA MA provo un test
+ }/*   FUNZIONA MA provo un test
   logIn(username:string, password:string){
     this.getUtenti();
     this.utenti.forEach((u)=>{if(u.email===username&&u.password===password){
@@ -42,25 +46,20 @@ export class UtentiService {
       
     }})
   }*/ 
-  
-
-  login(username: string, password: string): Utente {
+  login(email: string, password: string): any {
     this.getUtenti();
-    const user = this.utenti.find((u) => u.email === username && u.password === password);
-    if (user) {
-      user.isLoggedIn = true;
+    this.user = this.utenti.find((u) => u.email === email && u.password === password);
+    if (this.user) {
+      this.isLoggedIn = true;
       //this.isLogedIn = true;
       //return true;
-      return user;
+      return this.user;
     } else {
+      this.isLoggedIn = false;
       this.router.navigate([`/login`])
+    
     }
   }
 
-
-
-  logOut(){
-    this.isLogedIn=false;
-    console.log(this.isLogedIn)
-  }
+  
 }

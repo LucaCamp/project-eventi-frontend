@@ -1,23 +1,25 @@
-<div class="pt-3 container-fluid"  *ngFor="let evento of listaEventi" >
-  <div class="row">
-  <div class="col-lg-2"></div>
-  <div class="col-lg-8">
-    <mat-card >
-      <mat-card-header>
-        <mat-card-title> <div>{{evento.nome}} </div><div>  </div></mat-card-title>
-        <mat-card-subtitle>{{evento.localita}} - {{evento.data | date: shortDate}}
-          <mat-card-content><p class="card-text">{{evento.descrizione}}</p>
-            <p class="card-text">{{evento.prezzo | currency: 'EUR':true}}</p></mat-card-content>
-      </mat-card-subtitle>
-      </mat-card-header>
-      <mat-card-footer>
-      <mat-card-actions align="end">
-        <div class="d-flex flex-column align-items-center me-3 prenota">
-          <div class="mb-3"><button  matTooltip="Prenota" mat-mini-fab color= "stroked" class="btn btn-success" >
-            <mat-icon>add_shopping_cart</mat-icon></button></div>
-        </div>
-      </mat-card-actions></mat-card-footer>
-    </mat-card></div>
-<div class="col-lg-2"></div>
+<div class="container"><h2 class="h1 mb-5 py-4 border-bottom text-center">Tutti gli Eventi</h2></div>
+
+<div class="container d-flex flex-wrap ps-4">
+  <mat-card class="example-card mb-4" *ngFor="let evento of listaEventi" style="width: 330px; height: 200px; margin-left: 6%; margin-right: 1%;">
+    <mat-card-header>
+      <mat-card-title-group>
+        <mat-card-title>{{evento.nome | uppercase}}</mat-card-title>
+        <mat-card-subtitle>{{evento.data | date : "short"}}</mat-card-subtitle>
+        <mat-card-subtitle>{{evento.prezzo | currency: "EUR":true}}</mat-card-subtitle>
+        <img mat-card-sm-image src="../../../assets/ticket.png">
+      </mat-card-title-group>
+    </mat-card-header>
+    <mat-card-content class="truncate-text">
+      {{evento.descrizione}}
+    </mat-card-content>
+    <mat-card-footer>
+      <mat-card-actions>
+        <button mat-button style="position: absolute; right: 3px; bottom: 2px;" class="ml-auto">PRENOTA</button>
+      </mat-card-actions>
+    </mat-card-footer>
+  </mat-card>
 </div>
-</div>
+
+  
+  

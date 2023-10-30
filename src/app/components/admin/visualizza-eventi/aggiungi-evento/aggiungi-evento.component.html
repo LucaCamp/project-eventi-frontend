@@ -7,15 +7,27 @@
   <form  [formGroup]="addForm" (ngSubmit)="onSubmit()">
     <div class="form-group">
       <label for="nome">Nome</label>
-      <input type="text" class="form-control" id="nome" aria-describedby="emailHelp" formControlName = "nome" >
+      <input type="text" class="form-control" id="nome" aria-describedby="emailHelp" formControlName = "nome" ><br>
     </div>
     <div class="form-group">
-      <label for="nome">Categoria</label>
-      <input type="number" class="form-control" id="categoria" aria-describedby="emailHelp" formControlName = "idCategoria" >
+      <div class="input-group mb-3">
+        <div class="input-group-prepend">
+          <label class="input-group-text" for="categoria">Categoria</label>
+        </div>
+        <select class="custom-select" id="categoria" formControlName="idCategoria">
+          <option value={{categoria.id}} *ngFor="let categoria of categorie">{{categoria.nome}}</option>
+        </select>
+      </div>
     </div>
     <div class="form-group">
-      <label for="localita">Localita</label>
-      <input type="number" class="form-control" id="localita" placeholder="" formControlName = "idLocalita">
+      <div class="input-group mb-3">
+        <div class="input-group-prepend">
+          <label class="input-group-text" for="localita">Localita</label>
+        </div>
+        <select class="custom-select" id="localita" formControlName="idLocalita">
+          <option value={{loca.id}} *ngFor="let loca of localita">{{loca.citta}}</option>
+        </select>
+      </div>
     </div>
     <div class="form-group">
       <label for="descrizione">Descrizione</label>

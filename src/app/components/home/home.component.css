@@ -1,31 +1,27 @@
-main {
-  background: rgb(0, 0, 0);
-  background: linear-gradient(0deg, rgba(0, 0, 0, 1) 0%, rgba(6, 200, 0, 0.4160229972239291) 49%, rgba(0, 0, 0, 1) 100%);
+.cover {
+  background-image: url("../../../assets/Cover.png");
+  height: 100%;
+  width: 100%;
+  background-position: 69%;
+  background-size: cover;
+
 }
 
+.text-image-1 {
+  height: 100%;
+  padding-top: 100px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  color: white;
+  text-align: center;
 
-.box {
-  transition: 1s ease-out;
 }
 
-@keyframes movimento {
-  0% {
-    transform: scale(1);
-  }
-
-  50% {
-    transform: scale(1.15);
-  }
-
-
-  100% {
-    transform: scale(1);
-  }
-}
-
-
-.box:hover {
-  animation-name: movimento;
-  animation-duration: 3s;
-  cursor: pointer;
+.cover-gradient {
+  height: 100%;
+  background: linear-gradient(45deg, #000000a4, #00000085, #0000003e);
+  width: 100%;
 }

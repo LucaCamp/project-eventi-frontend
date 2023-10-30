@@ -2,8 +2,12 @@ import { formatDate } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators, } from '@angular/forms';
 import { MatDialogRef } from '@angular/material/dialog';
+import { Observable } from 'rxjs';
+import { Categoria } from 'src/app/models/categoria.model';
 import { Evento } from 'src/app/models/evento.model';
+import { CategoriaService } from 'src/app/services/categoria.service';
 import { EventiServiceService } from 'src/app/services/eventi-service.service';
+import { LocalitaService } from 'src/app/services/localita.service';
 
 @Component({
   selector: 'app-aggiungi-evento',
@@ -13,14 +17,17 @@ import { EventiServiceService } from 'src/app/services/eventi-service.service';
 })
 export class AggiungiEventoComponent implements OnInit {
   addForm!: FormGroup
-  eventiService
+  
+  categorie !:any[];
+  localita !:any[];
 
   nuovoEvento: Evento = new Evento()
-  constructor(eventiService: EventiServiceService, private dialogRef: MatDialogRef<AggiungiEventoComponent>) {
-    this.eventiService = eventiService
+  constructor(private categoriaService:CategoriaService,private localitaService:LocalitaService, private eventiService: EventiServiceService, private dialogRef: MatDialogRef<AggiungiEventoComponent>) {
 
-  }
+    }
   ngOnInit(): void {
+    this.popolaCategoria();
+    this.popolaLocalita();
     //Reactive Form
     this.addForm = new FormGroup({
       nome: new FormControl(null, Validators.required),
@@ -30,9 +37,19 @@ export class AggiungiEventoComponent implements OnInit {
       idCategoria: new FormControl(null, Validators.required),
       idLocalita: new FormControl(null, Validators.required),
       data: new FormControl(null, Validators.required)
-    })
+      
+    }
+    )
   }
+  popolaCategoria(){
+     this.categoriaService.getCategorie().subscribe((dato)=>{this.categorie=dato})
+   
+   
+  }
+  popolaLocalita(){
+    this.localitaService.getLocalita().subscribe((dato)=>{this.localita=dato})
 
+  }
 
   //Metodo onsubmit per il Reactive Forms
   onSubmit() {

@@ -11,8 +11,8 @@ import { UtentiService } from 'src/app/services/utenti.service';
   styleUrls: ['./login-page.component.css']
 })
 export class LoginPageComponent {
-  formLogin!:FormGroup;
-  formSignup!:FormGroup;
+  formLogin!: FormGroup;
+  formSignup!: FormGroup;
   constructor(private router: Router, private utenteService: UtentiService) {
 
   }
@@ -30,14 +30,16 @@ export class LoginPageComponent {
       codiceFiscale: new FormControl(null, Validators.required)
     })
   }
+
   /*  PERFETTAMENTE FUNZIONANTE MA TOLGO PER UN TEST
   per la rout home
   login(){
     this.utenteService.logIn(this.formLogin.value.email, this.formLogin.value.password); 
   }*/
 
-   login(){
-    const loginSuccess = this.utenteService.isLogedIn
+   check(){
+    this.utenteService.login(this.formLogin.value.email, this.formLogin.value.password)
+    const loginSuccess = this.utenteService.isLoggedIn
     if(loginSuccess){
       this.router.navigate([`/home`])
     }else{
@@ -45,8 +47,13 @@ export class LoginPageComponent {
     }
    }
 
-  signup(){
-    let utente:Utente = this.formSignup.value;
+  
+
+  
+  signup() {
+    console.log("registrato")
+    let utente: Utente = this.formSignup.value;
+
     this.utenteService.registraUtente(utente);
   }
 

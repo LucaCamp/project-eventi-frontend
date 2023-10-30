@@ -6,5 +6,5 @@ export class Utente {
   email!: string;
   codiceFiscale!: string;
   status!:string;
-  isLoggedIn!: boolean;
+  
 }
