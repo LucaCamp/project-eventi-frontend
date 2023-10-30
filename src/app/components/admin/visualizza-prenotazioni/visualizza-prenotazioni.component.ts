@@ -125,12 +125,7 @@ this.getPrenotazioni();
 }
 
 getPrenotazioni() {
-this.prenotazioniService.getPrenotazioni().subscribe((data: any) => {
-if (data) {
-this.listaPrenotazioni = data;
-console.log(data)
-}
-})
+this.prenotazioniService.getPrenotazioni()
 }
 
 

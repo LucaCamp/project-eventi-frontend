@@ -12,6 +12,7 @@ export class CancellaPrenotazioneComponent {
     public dialogRef: MatDialogRef<CancellaPrenotazioneComponent>,
     @Inject(MAT_DIALOG_DATA) public data: { idPrenotazione: number }
   ) { }
+ 
   cancella(idPrenotazione: number) {
     this.prenotazioniService.cancellaPrenotazione(idPrenotazione);
     this.dialogRef.close('success');

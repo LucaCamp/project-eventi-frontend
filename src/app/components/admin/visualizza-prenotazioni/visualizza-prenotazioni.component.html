@@ -39,7 +39,7 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let prenotazione of listaPrenotazioni">
+      <tr *ngFor="let prenotazione of prenotazioniService.prenotazioni">
         <td><mat-icon>confirmation_number</mat-icon></td>
         <td>{{ prenotazione.id }}</td>
         <td>{{ prenotazione.idUtente }}</td>
